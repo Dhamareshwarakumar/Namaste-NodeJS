@@ -55,14 +55,9 @@
 
 -   What is [Node.js](#what-is-nodejs)?
     -   What do you mean by runtime?
-    -   What is a javascript engine?
+    -   What is a [javascript engine](../Chapter%2002%20-%20JS%20on%20Server/02_js-on-server.md#what-is-a-javascript-engine)?
         -   Do you aware of any other javascript engines? or
         -   Any idea what javascript engines does Firefox or Safari uses?
-            | | |
-            | ------- | ----------------------- |
-            | Chrome | [V8 Engine](https://v8.dev/docs) |
-            | Firefox | [SpiderMonkey](https://spidermonkey.dev/) |
-            | Safari | JavaScriptCore/JSC/Nitro |
 -   What is [Web Assembly](https://youtu.be/cbB3QEwWMlA)?
 -   What is [event-driven architecture](#future-ref)?
 -   Differentiate Blocking & Non-Blocking I/O?
