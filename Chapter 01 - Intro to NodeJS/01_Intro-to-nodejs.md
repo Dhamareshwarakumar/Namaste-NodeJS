@@ -10,7 +10,7 @@
 
 ### Why Node.js is created?
 
--   Before Node.js servers are built using [Apache Http Server](https://httpd.apache.org), which has blocking I/O.
+-   Before Node.js, most of the servers are built using [Apache Http Server](https://httpd.apache.org), which has blocking I/O.
 -   So the intention is to create a server with Non-Blocking I/O.
 
 ### History of Node.js?
@@ -61,5 +61,7 @@
 -   What is [Web Assembly](https://youtu.be/cbB3QEwWMlA)?
 -   What is [event-driven architecture](#future-ref)?
 -   Differentiate Blocking & Non-Blocking I/O?
+
+[NEXT: Chapter 02 - JS on Server](../Chapter%2002%20-%20JS%20on%20Server/02_js-on-server.md)
 
 [Back to index](../README.md)

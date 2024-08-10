@@ -27,8 +27,8 @@
 
 -   To use a module, you need to import it using the `require()` function.
 -   This function returns a reference to the module's exports, which can be functions, objects, or variables.
--   By simply importing modules using `require` will not provide access to their modules variables and functions because modules protect their variables and functions from leaking.
--   Inorder to access variables and functions from a module they need to be exported from that module.
+-   By simply importing modules using `require` will not provide access to their module's variables and functions because modules protect their variables and functions from leaking.
+-   Inorder to access variables and functions from a module they need to be exported from that module. Check here for [more](../Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md#how-variables-and-functions-became-private-in-a-module-when-imported-using-require)
 
 ```js
 const fs = require('fs'); // Importing the built-in 'fs' module
@@ -116,5 +116,9 @@ greet(`Dhamareshwar`);
 ```
 
 ### Default export Vs Named export
+
+[PREV: Chapter 02 - JS on Server](../Chapter%2002%20-%20JS%20on%20Server/02_js-on-server.md)
+
+[NEXT: Chapter 05 - Diving into the Node.js github repo](../Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md)
 
 [Back to index](../README.md)
