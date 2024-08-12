@@ -26,6 +26,12 @@ _Any application that can be written in javascript will eventually be written in
     - [CommonJS Modules Vs ES Modules](./Chapter%2004%20-%20module.export%20&%20require/04_module.export-and-require.md#commonjs-modules-vs-es-modules)
     - [Default export Vs Named export](./Chapter%2004%20-%20module.export%20&%20require/04_module.export-and-require.md#default-export-vs-named-export)
 5. [Diving into the Node.js github repo](./Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md)
+
     - [How variables and functions became private in a module when imported using `require()`](./Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md#how-variables-and-functions-became-private-in-a-module-when-imported-using-require)
     - [How `require` method works](./Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md#how-require-method-works)
     - [Simple `require` pseudo code](./Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md#simple-require-pseudo-code)
+
+6. [libuv & async IO](./Chapter%2006%20-%20libuv%20&%20async%20IO/06_libuv-and-async-io.md)
+    - [Synchronous Vs Asynchronous execution](./Chapter%2006%20-%20libuv%20&%20async%20IO/06_libuv-and-async-io.md#synchronous-vs-asynchronous-execution)
+    - [Importance of libuv](./Chapter%2006%20-%20libuv%20&%20async%20IO/06_libuv-and-async-io.md#importance-of-libuv)
+    - [What is libuv library](./Chapter%2006%20-%20libuv%20&%20async%20IO/06_libuv-and-async-io.md#what-is-libuv-library)

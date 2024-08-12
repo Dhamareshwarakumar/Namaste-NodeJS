@@ -99,4 +99,6 @@ function require(filePath) {
 
 [PREV: Chapter 04 - module.exports](../Chapter%2004%20-%20module.export%20&%20require/04_module.export-and-require.md)
 
+[NEXT: Chapter 06 - libuv & async IO](../Chapter%2006%20-%20libuv%20&%20async%20IO/06_libuv-and-async-io.md)
+
 [Back to index](../README.md)
