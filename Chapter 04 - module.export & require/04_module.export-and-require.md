@@ -3,6 +3,7 @@
 ### What is a module?
 
 -   A module is a encapsulated units of code that can be reused across different parts of an application.
+-   Every individual javascript file can be considered as a module.
 -   Types of modules in Node.js
     -   **Built-in modules**
         -   These modules come pre-packaged with Node.js and provide access to core functionalities like file system operations (fs), network communication (http), and more.
@@ -27,7 +28,7 @@
 
 -   To use a module, you need to import it using the `require()` function.
 -   This function returns a reference to the module's exports, which can be functions, objects, or variables.
--   By simply importing modules using `require` will not provide access to their module's variables and functions because modules protect their variables and functions from leaking.
+-   By simply importing modules using `require()` will not provide access to their module's variables and functions because modules protect their variables and functions from leaking.
 -   Inorder to access variables and functions from a module they need to be exported from that module. Check here for [more](../Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md#how-variables-and-functions-became-private-in-a-module-when-imported-using-require)
 
 ```js
@@ -55,14 +56,23 @@ greet('Dhamareshwar'); // Output: Hello, John!
 
 **NOTE:**
 
--   While importing local modules, either absolute path or relative path should be provided to `require` function.
+-   While importing local modules, either absolute path or relative path should be provided to `require()` function.
 -   While using node_modules, only the module name should be provided.
 -   if you wanted to export mutiple variables or functions, simply wrap them in an object.
 -   By default `modules.exports` is an empty object.
+-   By default Node.js uses commonjs modules. To use ES Modules declare `type: 'module'` in `package.json`.
+
+```json
+// package.json
+{
+    "type": "module"
+}
+```
 
 ### Grouping modules together
 
--   For better organization, modules with related functionalities can be placed inside a folder and add index file to specify exports.
+-   For better organization, modules with related functionalities can be placed inside a folder and add index file to specify exports, which inturn becomes a module.
+-   i.e., in the below case `add.js` and `subtract.js` kept together to form a `math` module which provides the utilities to add and substract.
 
 ```
 |\_ math
@@ -93,7 +103,7 @@ const { add, subtract } from './math';
 |        | Common Js                 | ES Modules     |
 | ------ | ------------------------- | -------------- |
 | alias  | cjs                       | mjs            |
-| syntax | module.exports, require() | import, export |
+| syntax | require(), module.exports | import, export |
 |        | Older way                 | Newer way      |
 |        | Synchronous               | can be Async   |
 |        | non strict mode           | strict mode    |
@@ -115,10 +125,44 @@ import { greet } from './myModule';
 greet(`Dhamareshwar`);
 ```
 
+# Appendix
+
 ### Default export Vs Named export
 
-[PREV: Chapter 02 - JS on Server](../Chapter%2002%20-%20JS%20on%20Server/02_js-on-server.md)
+-   In ES Modules syntax, there are two main ways to export values: default exports, used for a single export per file/module, and named exports, allowing multiple exports per file/module.
 
-[NEXT: Chapter 05 - Diving into the Node.js github repo](../Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md)
+```js
+// add.js
+function add(op1, op2) {
+    return op1 + op2;
+}
 
-[Back to index](../README.md)
+export default add;
+```
+
+```js
+// index.js
+import add from './add.js';
+import subtract from './subtract.js';
+
+export { add, subtract };
+```
+
+```js
+// app.js
+import { add, subtract } from './math';
+```
+
+**NOTE:**
+
+-   Carefully observe the syntax difference between default and named exports.
+-   A file/module can have only one default export, but it can have multiple named exports as needed.
+-   If you are importing both default & named exports in a single line default export must be provided first and then named exports.
+
+```js
+import React, { useStet, useEffect } from 'react';
+```
+
+|                                                                                              |                               |                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [PREV: Chapter 02 - JS on Server](../Chapter%2002%20-%20JS%20on%20Server/02_js-on-server.md) | [Back to index](../README.md) | [NEXT: Chapter 05 - Diving into the Node.js github repo](../Chapter%2005%20-%20Diving%20into%20the%20NodeJS%20github%20repo/05_diving-into-the-nodejs-github-repo.md) |
