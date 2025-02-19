@@ -18,7 +18,7 @@
 
 -   Javascript (JAVASCRIPT ENGINE) is synchronous, single-threaded (i.e., Javascript engine can run only one operation at a time)
 
-### How Javascript shoes Asynchronous behaviour?
+### How Javascript shows Asynchronous behaviour?
 
 -   Runtime environments provide the ability to handle asynchronous tasks to the Javascript engine.
 
@@ -39,7 +39,7 @@
 
 -   Node.js Architecture
 
-    -   ![Node.js Architecture](#TODO)
+    ![Node.js Architecture](../.github/assets/node_runtime_architecture.png)
 
 ### Simple workflow of handling async tasks
 
@@ -58,6 +58,51 @@
     - Continuously checks if the main thread is idle.
     - Moves callbacks from queue to main thread.
 
+### Simple Async code execution
+
+```js
+const fs = require("fs");
+const https = require("https");
+
+console.log("Hello World");
+
+var a = 987654321;
+var b = 123456789;
+
+https.get("https://dummyjson.com/products/1", (res) =>
+    console.log("Data Fetched Successfully")
+);
+
+setTimeout(() => {
+    console.log("setTimeout called for 5 sec");
+}, 5000);
+
+fs.readFile(__dirname + "/file.txt", "utf-8", (err, data) => {
+    if (err) throw err;
+    console.log(data);
+});
+
+function multiply(a, b) {
+    return a * b;
+}
+
+var c = multiply(a, b);
+console.log(c);
+
+console.log("End of sync execution");
+```
+
+**Output:**
+
+```
+HelloHello World
+121932631112635260
+End of sync execution
+Hello World! I am chitti, Speed: 1 Terra Hertz, Memory: 1 Zeta Byte
+Data Fetched Successfully
+setTimeout called for 5 sec
+```
+
 ### What is libuv library
 
 -   [`libuv`](https://libuv.org/) is an open-source cross platform C library that provides support for asynchronous I/O based operations. Originally designed for Node.js
@@ -68,17 +113,26 @@
     -   Asynchronous I/O
     -   Cross platform compatibility
 
+### How Node.js is utilizing libuv to achieve Async I/O?
+
 ### What is libuv's thread pool?
 
 TODO:
 
 ### Why the term "Asynchronous I/O"
 
--   All the I/O tasks are delegated to libuv and it executes them asynchronously using thread pool, hence Async I/O.
+-   All the I/O tasks are delegated to libuv and it executes them asynchronously using thread pool, so they get executed parallelly with main thread, hence Async I/O.
+-   This Asynchronous I/O nature leads to Non-Blocking I/O nature.
 
 ### Why the term "Non-Blocking I/O"
 
--   No I/O task will block the main thread, hence the name Non-Blocking I/O
+-   Since all the I/O tasks are delegated to libuv and running on thread pool leaves main thread unblocked with I/O tasks.
+-   None of the I/O tasks are blocking the main thread, hence Non-Blocking I/O
+
+### Why Non-Blocking I/O is advantageous?
+
+-   Usually all I/O tasks makes CPU sit idle until they receive response which is wastage of resources.
+-   Since Javascript is single threaded until the current request is resolved no other requests will be served (assumin you are running only one server instance)
 
 # Appendix
 

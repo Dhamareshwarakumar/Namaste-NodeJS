@@ -23,13 +23,29 @@
 -   A Javascript engine is a program that executes Javascript code.
 -   It takes human-readable Javascript code, translates it into machine-readable instructions and executes it.
 -   Some key functions of a Javascript Engine are...
+
     -   **Parsing**
-        -   The engine reads the Javascript code and checks its syntax.
-        -   It then creates a data strcuture called an Abstract Syntax Tree (AST), which represents the code's structure.
+
+        -   **Lexical Analysis (Tokenization):**
+            -   Source code is broken down into a sequence of tokens.
+            -   The lexical analyzer (also called scanner or tokenizer) reads the code character by character and groups them into tokens.
+            -   Tokens represent the basic building blocks like:
+                -   Keywords
+                -   Identifiers
+                -   Operators
+                -   Punctuation
+                -   Constants
+        -   **Syntax Analysis:**
+            -   The syntax analyzer (parser) takes the stream of tokens produced by lexical analysis.
+            -   It converts these tokens into a tree representation called Abstract Syntax Tree (AST).
+            -   The AST represents the syntactic structure of the JavaScript code.
+            -   It also validates that the code follows proper language syntax rules.
+
     -   **Compiling**
         -   Modern Javascript engines use Just-In-time (JIT) compilation to convert the AST into machine code.
     -   **Execution**
         -   The engine runs the compiled machine code.
+
 -   Popular Javascript engines...
 
     | Engine                                    | Developed By | Uses in         |
@@ -58,9 +74,9 @@
 
 ### What is JIT compilation?
 
--   Static compilation converts the source code into a language for a specific platform (machine code), usually before the program is run (ahead of time compilation).
--   An interpreter directly executes the source code.
--   Just In Time (JIT) compilation attempts to use the benefits of both. While the interpreted program is being run, the JIT compiler determines the most frequently used code and compiles it to machine code. Depending on the compiler, this can be done on a method or smaller section of code.
+-   **Static compilation** converts the source code into a language for a specific platform (machine code), usually before the program is run (ahead of time compilation).
+-   **An interpreter** directly executes the source code line by line.
+-   **Just In Time (JIT)** compilation attempts to use the benefits of both. While the interpreted program is being run, the JIT compiler determines the most frequently used code (HOT) and compiles it to machine code. Depending on the compiler, this can be done on a method or smaller section of code.
 -   So when the next time executing same method/code machine code will be used instead.
 
 ### What is ECMAScript?
@@ -91,6 +107,11 @@
 ### What is a Transpiler?
 
 -   A program that converts code from one high-level language to another.
+
+### Learn more
+
+-   [Abstracty Syntax Tree Visualizer](astexplorer.net)
+-   [V8 GitHub](https://github.com/v8/v8)
 
 |                                                                                                               |                               |                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
